@@ -1,0 +1,36 @@
+{
+  "version" : "1.0.0",
+  "name": "Hyperiums",
+  "options_page": "options.html",
+  "background": {
+    "page": "background.html"
+  },
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": "img/icon-34.png"
+  },
+  "icons": {
+    "128": "img/icon-128.png"
+  },
+  "manifest_version": 2,
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "content_scripts": [{
+    "matches": ["http://hyp2.hyperiums.com/servlet/*"],
+    "js": [
+      "export/main.bundle.js"
+    ],
+    "css": [
+      "css/main.css"
+    ]
+  }],
+  "permissions": [
+    "http://hyp2.hyperiums.com/",
+    "https://hyp2.hyperiums.com/",
+    "http://imc.ovh/",
+    "alarms",
+    "cookies",
+    "storage",
+    "tts",
+    "unlimitedStorage"
+  ]
+}
