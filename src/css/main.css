@@ -1,9 +1,44 @@
-.extra {
-    height: 30px;
+html, body {
+    font-family: Roboto, Tahoma, Arial, Helvetica, "Lucida Grande", sans-serif !important;
+        -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.extra td {
+    height: 20px;
 }
 
 
 .planetCard3{
     border: 0 !important;
     padding: 10px  !important;
+}
+
+.visib_background {
+    background: none !important;
+}
+
+ul.tabbernav {
+        border-bottom: 1px solid #212121 !important;
+}
+
+ul.tabbernav li.tabberactive a, ul.tabbernav li a {
+    border: none !important;
+}
+
+.solidblockmenu {
+    background: #212121 !important;
+}
+
+button {
+    background: #212121 !important;
+}
+
+.bh button {
+    padding: 5px 10px !important;
+    font-size: 10px !important;
+    border: none !important;
+}
+
+.red {
+    color: red !important;
 }

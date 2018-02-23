@@ -1,4 +1,4 @@
-/* global fetch, Headers, URL, URLSearchParams */
+/* global fetch, Headers, URL, URLSearchParams, XMLHttpRequest */
 
 export class Hyp {
   constructor (_login, _password) {
@@ -140,6 +140,38 @@ export class Hyp {
           reject(new Error('No pairs/data'))
         }
       })
+    })
+  }
+
+  prepBH (_id) {
+    return new Promise((resolve, reject) => {
+      var xhr = new XMLHttpRequest()
+      xhr.open('POST', this.url('Floatorders'), true)
+      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+          resolve()
+        }
+      }
+      xhr.send('initblackhole=Prepare&def=0&planetid=' + _id)
+    }).catch(error => {
+      throw new Error(error)
+    })
+  }
+
+  avoidBH (_id) {
+    return new Promise((resolve, reject) => {
+      var xhr = new XMLHttpRequest()
+      xhr.open('POST', this.url('Floatorders'), true)
+      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+          resolve()
+        }
+      }
+      xhr.send('cancelbhinit=Cancel preparation&planetid=' + _id)
+    }).catch(error => {
+      throw new Error(error)
     })
   }
 
